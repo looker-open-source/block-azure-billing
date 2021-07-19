@@ -127,7 +127,7 @@ view: azure_billing {
   dimension: pre_tax_cost {
     hidden: yes
     type: number
-    sql: CAST(${TABLE}.costInBillingCurrency  AS FLOAT64)*200 ;;
+    sql: CAST(${TABLE}.costInBillingCurrency  AS FLOAT64) ;;
   }
 
   measure: total_pre_tax_cost {
