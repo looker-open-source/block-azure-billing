@@ -1,5 +1,5 @@
 view: azure_billing {
-  sql_table_name: `@{AZURE_BILLING_TABLE_NAME}`;;
+  sql_table_name: `@{AZURE_SCHEMA_NAME}.@{AZURE_TABLE_NAME}`;;
 
   dimension: cloud {
     type: string

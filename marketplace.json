@@ -1,0 +1,26 @@
+{
+  "label": "Azure Billing",
+  "category_label": "Models",
+  "branding": {
+    "image_uri": "https://fonts.gstatic.com/s/i/googlematerialicons/azure/v2/googblue-48dp/2x/gm_azure_googblue_48dp.png",
+    "tagline": "TODO"
+  },
+  "constants": {
+    "AZURE_BILLING_CONNECTION": {
+      "label": "Connection Name",
+      "value_constraint": "connection"
+    },
+    "AZURE_SCHEMA_NAME": {
+      "label": "Azure Billing Schema"
+    },
+    "AZURE_TABLE_NAME": {
+      "label": "Azure Billing Table"
+    }
+  },
+  "models": [
+    {
+      "name": "azure_billing",
+      "connection_constant": "AZURE_BILLING_CONNECTION"
+    }
+  ]
+}

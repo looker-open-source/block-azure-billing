@@ -5,7 +5,7 @@
   elements:
   - title: YTD Costs
     name: YTD Costs
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: single_value
     fields: [azure_billing.total_pre_tax_cost, azure_billing.period_selected]
@@ -56,7 +56,7 @@
     height: 2
   - title: QTD Costs
     name: QTD Costs
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: single_value
     fields: [azure_billing.total_pre_tax_cost, azure_billing.period_selected]
@@ -98,7 +98,7 @@
     height: 2
   - title: MTD Costs
     name: MTD Costs
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: single_value
     fields: [azure_billing.total_pre_tax_cost, azure_billing.period_selected]
@@ -140,7 +140,7 @@
     height: 2
   - title: WTD Costs
     name: WTD Costs
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: single_value
     fields: [azure_billing.total_pre_tax_cost, azure_billing.period_selected]
@@ -182,7 +182,7 @@
     height: 2
   - title: YEAR OVER YEAR SPEND
     name: YEAR OVER YEAR SPEND
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: looker_line
     fields: [azure_billing.total_pre_tax_cost, azure_billing.usage_date_time_year,
@@ -270,7 +270,7 @@
     height: 8
   - title: TOP BILLED RESOURCES
     name: TOP BILLED RESOURCES
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: looker_waterfall
     fields: [azure_billing.total_pre_tax_cost, azure_billing.resource_group]
@@ -337,7 +337,7 @@
     height: 2
   - title: RESOURCE GROUP
     name: RESOURCE GROUP
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: looker_grid
     fields: [azure_billing.resource_group, azure_billing.total_pre_tax_cost, azure_billing.period_selected]
@@ -435,7 +435,7 @@
     height: 6
   - title: METER CATEGORY
     name: METER CATEGORY
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: looker_grid
     fields: [azure_billing.total_pre_tax_cost, azure_billing.period_selected, azure_billing.meter_category]
@@ -533,7 +533,7 @@
     height: 6
   - title: CONSUMED SERVICE
     name: CONSUMED SERVICE
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: looker_grid
     fields: [azure_billing.total_pre_tax_cost, azure_billing.period_selected, azure_billing.consumed_service]
@@ -631,7 +631,7 @@
     height: 6
   - title: SUBSCRIPTION ID
     name: SUBSCRIPTION ID
-    model: multicloud_billing
+    model: azure_billing
     explore: azure_billing
     type: looker_grid
     fields: [azure_billing.total_pre_tax_cost, azure_billing.period_selected, azure_billing.subscription_guid]

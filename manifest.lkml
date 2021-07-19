@@ -5,7 +5,12 @@ constant: AZURE_BILLING_CONNECTION {
   value: "mw-alpha-cloud-usage"
 }
 
-constant: AZURE_BILLING_TABLE_NAME {
-  export: override_required
-  value: "cloud_cost_final.base_table_date_impute_azure"
+constant: AZURE_SCHEMA_NAME {
+  export: override_optional
+  value: "cloud_cost_final"
+}
+
+constant: AZURE_TABLE_NAME {
+  export: override_optional
+  value: "base_table_date_impute_azure"
 }
