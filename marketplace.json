@@ -11,10 +11,10 @@
       "value_constraint": "connection"
     },
     "AZURE_SCHEMA_NAME": {
-      "label": "Azure Billing Schema"
+      "label": "Azure Billing Export Schema"
     },
     "AZURE_TABLE_NAME": {
-      "label": "Azure Billing Table"
+      "label": "Azure Billing Export Table"
     }
   },
   "models": [
