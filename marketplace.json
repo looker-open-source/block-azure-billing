@@ -19,7 +19,7 @@
   },
   "models": [
     {
-      "name": "azure_billing",
+      "name": "azure_billing_block",
       "connection_constant": "AZURE_BILLING_CONNECTION"
     }
   ]
