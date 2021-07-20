@@ -79,7 +79,7 @@ view: azure_billing {
 
   dimension: currency {
     type: string
-    sql: ${TABLE}.BillingCurrency ;;
+    sql: ${TABLE}.Currency ;;
   }
 
   dimension: instance_id {
@@ -127,7 +127,7 @@ view: azure_billing {
   dimension: pre_tax_cost {
     hidden: yes
     type: number
-    sql: CAST(${TABLE}.costInBillingCurrency  AS FLOAT64) ;;
+    sql: CAST(${TABLE}.PreTaxCost  AS FLOAT64) ;;
   }
 
   measure: total_pre_tax_cost {
@@ -167,7 +167,7 @@ view: azure_billing {
   dimension: resource_group {
     group_label: "Resource"
     type: string
-    sql: ${TABLE}.resourceGroupName;;
+    sql: ${TABLE}.ResourceGroup ;;
   }
 
   dimension: resource_location {
@@ -215,7 +215,7 @@ view: azure_billing {
   dimension: subscription_guid {
     group_label: "IDs"
     type: string
-    sql: ${TABLE}.SubscriptionId ;;
+    sql: ${TABLE}.SubscriptionGuid ;;
   }
 
   dimension: unit_of_measure {
@@ -226,7 +226,7 @@ view: azure_billing {
   dimension_group: usage_date_time {
     label: "Usage"
     type: time
-    sql: TIMESTAMP(${TABLE}.servicePeriodStartDate) ;;
+    sql: TIMESTAMP(${TABLE}.UsageDateTime) ;;
   }
 
   dimension: usage_quantity {

@@ -27,11 +27,13 @@ view: +azure_billing {
   }
 
   # To get start date we need to get either first day of the year, month or quarter
+  # T-SQL does not support DATE_TRUNC methods (!) so we have to use a pattern: http://www.silota.com/docs/recipes/sql-server-date-parts-truncation.html
   dimension: first_date_in_period {
     view_label: "Period over Period"
     type: date
+    datatype: date
     hidden: no
-    sql: DATE_TRUNC(CURRENT_DATE(), {% parameter period %});;
+    sql: DATEADD({% parameter period %}, DATEDIFF({% parameter period %}, 0, CURRENT_TIMESTAMP), 0);;
     convert_tz: no
   }
 
@@ -40,15 +42,16 @@ view: +azure_billing {
     view_label: "Period over Period"
     type: number
     hidden: no
-    sql: DATE_DIFF(CURRENT_DATE(),${first_date_in_period}, DAY) ;;
+    sql: DATEDIFF(DAY, ${first_date_in_period}, CURRENT_TIMESTAMP) ;;
   }
 
   #Now get the first date in the prior period
   dimension: first_date_in_prior_period {
     view_label: "Period over Period"
     type: date
+    datatype: date
     hidden: no
-    sql: DATE_TRUNC(DATE_ADD(CURRENT_DATE(), INTERVAL -1 {% parameter period %}),{% parameter period %});;
+    sql: DATEADD({% parameter period %}, DATEDIFF({% parameter period %}, 0, DATEADD({% parameter period %}, -1, CURRENT_TIMESTAMP)), 0);;
     convert_tz: no
   }
 
@@ -56,8 +59,9 @@ view: +azure_billing {
   dimension: last_date_in_prior_period {
     view_label: "Period over Period"
     type: date
+    datatype: date
     hidden: no
-    sql: DATE_ADD(${first_date_in_prior_period}, INTERVAL ${days_in_period} DAY) ;;
+    sql: DATEADD(DAY, ${days_in_period}, ${first_date_in_prior_period}) ;;
     convert_tz: no
   }
 
@@ -81,9 +85,9 @@ view: +azure_billing {
     view_label: "Period over Period"
     type: number
     sql: CASE WHEN ${period_selected} = 'This {% parameter period %} to Date'
-          THEN DATE_DIFF(${azure_billing.usage_date_time_date}, ${first_date_in_period}, DAY)
+          THEN DATEDIFF(DAY, ${first_date_in_period}, ${azure_billing.usage_date_time_date})
           WHEN ${period_selected} = 'Prior {% parameter period %} to Date'
-          THEN DATE_DIFF(${azure_billing.usage_date_time_date}, ${first_date_in_prior_period}, DAY)
+          THEN DATEDIFF(DAY, ${first_date_in_prior_period}, ${azure_billing.usage_date_time_date})
           ELSE NULL END;;
   }
 
