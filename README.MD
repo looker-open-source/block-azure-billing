@@ -1,5 +1,7 @@
 # Cloud Cost Management: Azure
 
+This is not an officially supported Google product. This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security).
+
 Connect directly to your billing data in Azure to provide a consolidated reporting view of cloud spend.
 
 This Looker Block for Azure billing provides insights around usage of Azure services and the associated costs,
